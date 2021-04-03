@@ -2,6 +2,20 @@
     box-sizing:border-box;
 }
 
+::-webkit-scrollbar {
+    width: 0px;
+    background: #000;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #393812;
+    -webkit-border-radius: 1ex;
+    -webkit-box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.75);
+}
+
+::-webkit-scrollbar-corner {
+    background: #000;
+}
 
 body{
     height:100vh;
@@ -18,7 +32,7 @@ body{
 
 #container{
     width: 600px;
-    height:auto;
+    /* height:scroll; */
     display: flex;
     flex-direction: column;
     justify-content:center;
@@ -32,7 +46,7 @@ body{
     background:crimson;
     text-align: center;
     color: white;
-    font-size: 20px;
+    font-size: 17px;
     font-weight: bold;
     margin: 5px 0;
     border-radius: 5px;
@@ -53,14 +67,6 @@ body{
     flex-direction:row;
 }
 
-@keyframes glow {
-    from{
-        background:rgb(48, 153, 113);
-    }
-    to{
-        background:rgb(223, 219, 219) ;
-    }
-}
 
 #task_header , #done_header{
     width:50%;
@@ -91,20 +97,20 @@ body{
 
 }
 
-@keyframes slide_items {
+@keyframes grow{
     from{
-        transform:translateX(-150%);
+        transform:scale(1.2);
     }
     to{
-        transform:translateX(0%);
+        transform:scale(1);
     }
 }
 
 #task_bx{
     width: 100%;
-    min-height: 500px;
+    height: 600px;
     overflow-x: hidden;
-    overflow-y: auto;
+    overflow-y:auto;
     display:none;
     flex-direction: column;
     align-items: center;
@@ -117,12 +123,12 @@ body{
     display: flex;
     flex-direction:row;
     align-items: center;
-    background: white;
     margin: 5px 0;
-    padding: 0 10px;
+    padding: 0 20px;
     border-radius:5px;
-    color: rgb(61, 63, 62);
-    animation:slide_items 500ms linear;
+    background: rgb(39, 49, 59);
+    color: rgb(237, 241, 239);
+    animation:grow linear 200ms;
 }
 
 
@@ -139,7 +145,7 @@ body{
 
 #done_bx{
     width: 100%;
-    min-height: 500px;
+    height: 600px;
     overflow-x: hidden;
     overflow-y: auto;
     display:none;
@@ -154,18 +160,18 @@ body{
     display: flex;
     flex-direction:row;
     align-items: center;
-    background: white;
+    background: rgb(39, 49, 59);
     margin: 5px 0;
     padding: 0 10px;
     border-radius:5px;
-    animation:slide_items 500ms linear;
+    animation:grow linear 200ms;
 }
 
 .done p{
     width: 95%;
     font-size: 17px;
     text-decoration: line-through;
-    color: gray;
+    color: rgb(185, 184, 184);
 }
 
 .done .delete {
@@ -224,8 +230,9 @@ body{
     border: none;
     font-size: 17px;
     padding: 0 10px;
-    color: rgb(66, 62, 62);
+    color: rgb(146, 142, 142);
     border-radius:5px 0 0 5px;
+    background:rgb(30, 42, 53);    
 }
 #new_task_input_bx p{
     width: 15%;
@@ -293,4 +300,5 @@ body{
     display:flex;
     align-items: center;
     justify-content: center;
+    color:rgb(237, 241, 239);
 }

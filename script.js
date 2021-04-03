@@ -15,6 +15,9 @@ document.getElementById('date').innerHTML = `${day} , ${tarik} ${month} ${year}`
 task_bx = document.getElementById('task_bx');
 done_bx = document.getElementById('done_bx');
 
+task_count = document.getElementById('task_count');
+done_count = document.getElementById('done_count');
+
 
 let local_storage_keys = [];
 
@@ -40,7 +43,7 @@ for (let i = 0; i < localStorage.length; i++) {
     task_keys.forEach((item, index) => {
         text1 = localStorage.getItem(item);
         task_bx.innerHTML += `
-        <div class="task" id="task_${item}" style="animation-delay:${index * 50}ms !important">
+        <div class="task" id="task_${item}" style="animation-delay:${index * 0}ms !important">
             <p>${text1}</p> 
             <span class="complete" id="task_${item}_complete" onclick = 'complete_task(${item})'><i class="far fa-check-circle"></i></span>
         </div>  
@@ -55,6 +58,8 @@ for (let i = 0; i < localStorage.length; i++) {
             </p>
         </div>`
     }
+
+    task_count.innerHTML = task_keys.length;
 })();
 
 (function show_done(){
@@ -62,7 +67,7 @@ for (let i = 0; i < localStorage.length; i++) {
     done_task_keys.forEach((item, index) => {
         text2 = localStorage.getItem(item);
         done_bx.innerHTML += `
-        <div class="done" id="done_${item}" style='animation-delay:${index * 50}ms !important'>
+        <div class="done" id="done_${item}" style='animation-delay:${index * 0}ms !important'>
             <p>${text2}</p>
             <span class="delete" id="done_delete_${item}" onclick="delete_task(${item})"><i class="far fa-trash-alt"></i></span>
         </div>
@@ -78,36 +83,9 @@ for (let i = 0; i < localStorage.length; i++) {
             </p>
         </div>`
     }
+
+    done_count.innerHTML = done_task_keys.length;
 })();
-
-
-
-
-// (function show() {
-//     task_keys.forEach((item, index) => {
-//         text1 = localStorage.getItem(item);
-//         task_bx.innerHTML += `
-//         <div class="task" id="task_${item}" style="animation-delay:${index * 50}ms !important">
-//             <p>${text1}</p> 
-//             <span class="complete" id="task_${item}_complete" onclick = 'complete_task(${item})'><i class="far fa-check-circle"></i></span>
-//         </div>  
-//         `
-//     })
-
-
-//     done_task_keys.forEach((item, index) => {
-//         text2 = localStorage.getItem(item);
-//         done_bx.innerHTML += `
-//         <div class="done" id="done_${item}" style='animation-delay:${index * 50}ms !important'>
-//             <p>${text2}</p>
-//             <span class="delete" id="done_delete_${item}" onclick="delete_task(${item})"><i class="far fa-trash-alt"></i></span>
-//         </div>
-//         `
-//     })
-
-// })();
-
-
 
 
 function add_task(text_id) {
@@ -133,14 +111,15 @@ function add_task(text_id) {
         task_keys.push(task_no);
         localStorage['task'] = task_keys;
         task_bx.innerHTML += `
-        <div class="task" id="task_${task_no}" style='animation-delay:${task_keys.length * 50}ms !important'>
+        <div class="task" id="task_${task_no}" style='animation-delay:${task_keys.length * 0}ms !important'>
             <p>${text}</p>
             <span class="complete" id="task_${task_no}_complete" onclick = 'complete_task(${task_no})'><i class="far fa-check-circle"></i></span>
         </div>
         `
         form.value = '';
-        return;
     }
+
+    task_count.innerHTML = task_keys.length;
 }
 
 
@@ -167,6 +146,8 @@ function delete_task(key) {
             </p>
         </div>`
     }
+
+    done_count.innerHTML = done_task_keys.length;
 }
 
 
@@ -186,7 +167,7 @@ function complete_task(key) {
 
     document.getElementById(`task_${key}`).remove();
     document.getElementById(`done_bx`).innerHTML += `
-    <div class="done" id="done_${key}" style='animation-delay:${done_task_keys.length * 50}ms !important'>
+    <div class="done" id="done_${key}" style='animation-delay:${done_task_keys.length * 0}ms !important'>
         <p>${text}</p>
         <span class="delete" id="done_delete_${key}" onclick='delete_task(${key})'><i class="far fa-trash-alt"></i></span>
     </div>
@@ -200,6 +181,9 @@ function complete_task(key) {
             </p>
         </div>`
     }
+
+    task_count.innerHTML = task_keys.length;
+    done_count.innerHTML = done_task_keys.length;
 }
 
 
