@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Todo List</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://kit.fontawesome.com/b4ce6ab53b.js" crossorigin="anonymous"></script>
+</head>
+<body>
+    <div id="container">
+        <div id="date_bx">
+            <span id="date"> Js Required.</span>
+        </div>
+        <div id="todo_bx">
+            <div id="type_bx">
+                <div id="task_header" class="active"  onclick="switch_active('task','done')">Tasks</div>
+                <div id="done_header" class="" onclick="switch_active('done','task')">Done</div>
+            </div>
+            <div id="task_bx" class="active">
+                    <!-- <div class="task" id="task_1">
+                        <p> Tasks contents here .</p> 
+                        <span class="complete"  id="task_1_complete"> <i class="far fa-check-circle" onclick='complete_task()'></i> </span>
+                    </div>
+
+                    <div class="task" id="task_2">
+                        <p> Tasks contents here .</p>
+                        <span class="complete" id="task_2_complete"><i class="far fa-check-circle"></i></span>
+                    </div> -->
+
+            </div>
+
+            <div id="done_bx" class="">
+                    <!-- <div class="done" id="done_1">
+                        <p> Done Contents here .</p>
+                        <span class="delete" id="done_delete_1"><i class="far fa-trash-alt"></i></span>
+                    </div>
+
+                    <div class="done" id="done_2">
+                        <p> Done Contents here .</p>
+                        <span class="delete" id="done_delete_2"><i class="far fa-trash-alt"></i></span>
+                    </div> -->
+
+            </div>
+
+            <div id="new_task_bx">
+                    <div id="new_task_input_bx" class="hidden">
+                        <input type="text" placeholder="Add new task ..." id="new_task_input">
+                        <p id="new_task_add" onclick="add_task('new_task_input');"><i class="far fa-paper-plane"></i></p>
+                    </div>
+                    <div id="new_task_cancel"  class="hidden"  onclick="toggle_hide_show('new_task_input_bx','new_task_cancel','new_task');">
+                        <span id="new_task_cancel_icon"><i class="fas fa-backspace"></i></span>
+                        <p>Cancel</p>
+                    </div>
+                    <div id="new_task"  onclick="toggle_hide_show('new_task_input_bx','new_task_cancel','new_task')">
+                        <span id="new_task_plus_icon"><i class="fas fa-plus"></i></span>
+                        <p>New task</p>
+                    </div>
+            </div>
+        </div>
+
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
