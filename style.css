@@ -205,7 +205,7 @@ body{
     display: none!important;
 }
 
-#new_task_bx{
+#new_task_bx , #delete_all_done_bx{
     position: absolute;
     top: 93%;
     width: 70%;
@@ -271,7 +271,7 @@ body{
 }
 
 
-#new_task{
+#new_task , #delete_all{
     width: 100%;
     height: 50px;
     display: flex;
@@ -287,7 +287,7 @@ body{
     animation: rise linear 200ms;
 }
 
-#new_task span{
+#new_task span , #delete_all span{
     margin: 0 10px;
 }
 
